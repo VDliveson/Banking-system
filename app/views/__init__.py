@@ -1,1 +1,1 @@
-from . import home,login
+from . import home,login,reset
