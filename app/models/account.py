@@ -1,4 +1,5 @@
 from django.db import models
+from .customer import Customer
 
 class Account(models.Model):
     account_number=models.CharField(max_length=15,primary_key=True)

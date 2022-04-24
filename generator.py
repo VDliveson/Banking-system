@@ -1,0 +1,35 @@
+import os
+os.environ.setdefault('DJANGO_SETTINGS_MODULE','banking.settings')
+
+import django
+django.setup()
+
+import random
+from django.contrib.auth.hashers import make_password, check_password
+from django.views import View
+from app.models import Customer
+import pandas as pd
+import string
+
+
+data=pd.read_csv('mock_data.csv')
+
+
+
+
+for i in range(10):
+    first_name=data.get('first_name')[i]
+    last_name=data.get('last_name')[i]
+    password=data.get('password')[i].lower()
+    date_of_birth=data.get('date_of_birth')[i]
+    email=data.get('email')[i]
+    mobile=int(data.get('mobile')[i])
+    address=data.get('address')[i]
+    pan_number=data.get('pan_number')[i]
+    login_id=first_name[0:4]+str(random.randint(1111,9999))
+    customer_id=str(''.join(random.choices(string.ascii_uppercase +string.digits, k = 8)))
+    customer=Customer(first_name=first_name,last_name=last_name,date_of_birth=date_of_birth,
+                      email=email,mobile=mobile,address=address,pan_number=pan_number,
+                      login_id=login_id,customer_id=customer_id)
+    customer.password=make_password(password)
+    customer.register()

@@ -1,4 +1,5 @@
 from django.db import models
+from .account import Account
 
 class Transaction(models.Model):
     trasaction_id=models.AutoField(primary_key=True,blank=True)

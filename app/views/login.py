@@ -1,9 +1,10 @@
 from django.views import View
 from django.shortcuts import redirect, render
 from django.contrib import messages
-from django.contrib.auth.hashers import make_password, check_password
+from django.contrib.auth.hashers import check_password
 from django.http import HttpResponse
 from app.models import Customer
+
 
 class LoginView(View):
     def get(self,request):
@@ -20,11 +21,11 @@ class LoginView(View):
             return redirect('/admin')
         else:
             customer=Customer.get_Customer_by_login_id(username)
-            
+            print(customer)
             if customer:
-                flag=customer.check_password(password,customer.password)
+                flag=check_password(password,customer.password)
                 if flag:
-                    request.session['customer']=customer
+                    request.session['customer']=customer.customer_id
                     return redirect('home')
                 else:
                     messages.error(request,'Incorrect password')
