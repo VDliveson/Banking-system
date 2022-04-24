@@ -35,7 +35,10 @@
   }
   
   
-  body.dark {background-color: #292c35;} /* #9b59b6 */
+  body.dark {
+    background-color: #292c35;
+    color:white;
+  } /* #9b59b6 */
   
   body.dark h1, body.dark .support a {color: #fff;}
   
@@ -77,5 +80,8 @@
   
   
   
+
+  
+
 
   

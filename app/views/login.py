@@ -8,7 +8,12 @@ from app.models import Customer
 
 class LoginView(View):
     def get(self,request):
-        return render(request,'login.html')
+        customer=request.session.get('customer')
+        if (customer):
+            return redirect('home')
+        else:
+            return render(request,'login.html')
+        
     def post(self,request):
         username = request.POST['username']
         password = request.POST['password']
@@ -34,3 +39,7 @@ class LoginView(View):
             return render(request,'login.html')
             
             
+def logout(request):
+    messages.success(request, 'User logged out successfully')
+    request.session.clear()
+    return redirect('login')
