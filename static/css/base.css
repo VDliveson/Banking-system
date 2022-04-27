@@ -29,6 +29,7 @@
 
 
   .toggler{
+    z-index: 100;
     left:85%;
     position: fixed;
     top: 2%;

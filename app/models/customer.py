@@ -1,6 +1,7 @@
 from django.db import models
 
 
+
 class Customer(models.Model):
     first_name = models.CharField(max_length=200)
     last_name=models.CharField(max_length=200)
@@ -29,8 +30,14 @@ class Customer(models.Model):
             return Customer.objects.filter(email=email)
         except:
             return False
+        
+    @staticmethod
+    def get_Customer_by_id(id):
+        try:
+            return Customer.objects.get(customer_id=id)
+        except:
+            return False
     
-
     
     
         

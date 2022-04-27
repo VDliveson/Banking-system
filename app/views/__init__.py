@@ -1,1 +1,1 @@
-from . import home,login,reset
+from . import home,login,reset,passbook,portal,updater
