@@ -31,6 +31,7 @@ class LoginView(View):
                 flag=check_password(password,customer.password)
                 if flag:
                     request.session['customer']=customer.customer_id
+                    messages.success(request, 'Login successful')
                     return redirect('home')
                 else:
                     messages.error(request,'Incorrect password')

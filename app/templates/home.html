@@ -19,4 +19,13 @@ Home
       </div>
     </div>
   </nav>
+
+  <h1>{{full_name}}</h1>
+    <h2>{{email}}</h2>
+    <h2>{{address}}</h2>
+    <h3>{{mobile}}</h3>
+    {% for account in account_numbers %}
+      <h3>{{account}}</h3>
+    {% endfor %}
+    <h4>{{balance}}</h4>
 {%endblock%}

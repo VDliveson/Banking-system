@@ -7,16 +7,6 @@ Login
 {%block bodyblock%}
 <link rel="stylesheet" href="{%static 'css/login.css' %}">
 
-{% if messages %}
-<ul class="messages" style="list-style-type: none;">
-    {% for message in messages %}
-    <div class="alert">
-        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-        {{ message }}
-    {% endfor %}
-    
-</ul>
-{% endif %}
 
 
     <div class="background">
@@ -34,7 +24,7 @@ Login
         <label for="password">Password</label>
         <input type="password" placeholder="Password" name="password">
 
-        <a href=" {% url 'password_reset' %} ">Forgot Password?</a>
+        <a href=" /login ">Forgot Password?</a>
         
         <input type="submit" value="Login" class="login-button">
       

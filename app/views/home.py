@@ -18,7 +18,6 @@ class Index(View):
         mobile=customer.mobile
         address=customer.address
         login_id=customer.login_id
-        print(date_of_birth, email, mobile, address, login_id)
         
         account_numbers=[]
         for i in range(len(accounts)):
@@ -29,4 +28,8 @@ class Index(View):
         if not customer:
             return redirect('login')
         else:
-            return render(request,'home.html')
+            return render(request,'home.html',{'full_name':full_name,'date_of_birth':date_of_birth,
+                                               'email':email,'mobile':mobile,
+                                               'address':address,'login_id':login_id,
+                                               'account_numbers':account_numbers,
+                                               'total_balance':total_balance})

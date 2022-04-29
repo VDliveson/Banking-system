@@ -6,5 +6,11 @@ Passbook
 
 
 {%block bodyblock%}
-
+    {% for t in transactions  %}
+        <h1>{{t.transaction_id}}</h1>
+        <h1>{{t.transferred_amount}}</h1>
+        <h1>{{t.transaction_date}}</h1>
+        <h1>{{t.from_account.account_number}}</h1>
+        <h1>{{t.to_account.account_number}}</h1>
+    {% endfor %}
 {%endblock%}
