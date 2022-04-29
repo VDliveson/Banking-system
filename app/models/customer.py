@@ -1,5 +1,6 @@
 from django.db import models
-from .account import Account
+
+
 
 class Customer(models.Model):
     first_name = models.CharField(max_length=200)
@@ -17,14 +18,26 @@ class Customer(models.Model):
         self.save()
         
     @staticmethod
-    def get_Customer_by_account_number(login_id):
-        return Customer.objects.get(login_id=login_id)
+    def get_Customer_by_login_id(login_id):
+        try:
+            return Customer.objects.get(login_id=login_id)
+        except:
+            return False
     
     @staticmethod
     def get_Customer_by_email(email):
-        return Customer.objects.get(email=email)
+        try:
+            return Customer.objects.filter(email=email)
+        except:
+            return False
+        
+    @staticmethod
+    def get_Customer_by_id(id):
+        try:
+            return Customer.objects.get(customer_id=id)
+        except:
+            return False
     
-
     
     
         
