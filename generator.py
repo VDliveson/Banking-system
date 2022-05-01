@@ -36,16 +36,16 @@ import string
     
 ##Account generator
 
-# data=pd.read_csv('account_mock_data.csv')
+data=pd.read_csv('account_mock_data.csv')
 
-# for i in range(10):
-#     customer_id=Customer.get_Customer_by_id(data.get('customer_id')[i])
-#     account_type=AccountType.get_type_by_name(type=data.get('account_type')[i])
-#     balance=random.randint(500,10000)
-#     ifsc_code=data.get('ifsc_code')[i]
-#     account_number=data.get('account_number')[i]
-#     account=Account(customer_id=customer_id,account_type=account_type,
-#                     balance=balance,account_number=account_number,ifsc_code=ifsc_code)
-#     account.register()
+for i in range(10):
+    customer_id=Customer.get_Customer_by_id(data.get('customer_id')[i])
+    account_type=AccountType.get_type_by_name(type=data.get('account_type')[i])
+    balance=random.randint(500,10000)
+    ifsc_code=data.get('ifsc_code')[i]
+    account_number=data.get('account_number')[i]
+    account=Account(customer_id=customer_id,account_type=account_type,
+                    balance=balance,account_number=account_number,ifsc_code=ifsc_code)
+    account.register()
 
 print(make_password('abcd'))
