@@ -15,7 +15,16 @@
     {% block headblock %}
     {% endblock  %}
 </head>
-
+{% if messages %}
+<ul class="messages" style="list-style-type: none;">
+    {% for message in messages %}
+    <div class="alert {{ message.tags }} alert-dismissible" role="alert">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+        {{ message }}
+    {% endfor %}
+    
+</ul>
+{% endif %}
 <body>
     <!-- <div class="toggler">
         <input type="checkbox" class="checkbox" id="checkbox">

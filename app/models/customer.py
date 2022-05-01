@@ -13,6 +13,7 @@ class Customer(models.Model):
     pan_number=models.CharField(max_length=20)
     login_id=models.CharField(max_length=10)
     customer_id=models.CharField(max_length=20,primary_key=True)
+    gender=models.CharField(max_length=10)
     
     def register(self):
         self.save()

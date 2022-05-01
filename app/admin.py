@@ -6,12 +6,15 @@ from .models import *
 class CustomerResource(resources.ModelResource):
     class Meta:
         model=Customer
+        
 
 class AccountResource(resources.ModelResource):
     class Meta:
         model=Account
+        
 class AdminAccount(ImportExportModelAdmin):
     resource_class=AccountResource
+    list_display = ['account_number','customer_id']
     
 class AdminCustomer(ImportExportModelAdmin):
     resource_class=CustomerResource
