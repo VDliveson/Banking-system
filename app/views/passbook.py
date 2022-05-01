@@ -9,5 +9,5 @@ class PassbookView(View):
     def get(self, request):
         customer=Customer.get_Customer_by_id(request.session.get('customer'))
         account=Account.get_customer_accounts(customer)[0]
-        transactions=Transaction.objects.filter(Q(from_account=account.account_number) | Q(to_account=account.account_number)).order_by('-transaction_date')
-        return render(request,'passbook.html',{'transactions':transactions})
+        transactions=Transaction.objects.filter(Q(from_account=account) | Q(to_account=account)).order_by('-transaction_date')
+        return render(request,'passbook.html',{'transactions':transactions,'account':account})

@@ -8,16 +8,6 @@ Payment portal
 
 {% block bodyblock %}
 
-{% if messages %}
-<ul class="messages" style="list-style-type: none;">
-    {% for message in messages %}
-    <div class="alert">
-        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-        {{ message }}
-    {% endfor %}
-    
-</ul>
-{% endif %}
 <h3>Payment portal</h3>
 <form method="post" action="/portal">
     {% csrf_token %}

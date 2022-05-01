@@ -1,16 +1,43 @@
 {%extends 'base.html'%}
-
+{% load passtags %}
 {%block titleblock%}
 Passbook
 {%endblock%}
 
 
 {%block bodyblock%}
-    {% for t in transactions  %}
-        <h1>{{t.transaction_id}}</h1>
-        <h1>{{t.transferred_amount}}</h1>
-        <h1>{{t.transaction_date}}</h1>
-        <h1>{{t.from_account.account_number}}</h1>
-        <h1>{{t.to_account.account_number}}</h1>
-    {% endfor %}
+    
+        
+        
+    <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Date</th>
+            <th scope="col">Account Number</th>
+            <th scope="col">Account Name</th>
+            <th scope="col">Debited</th>
+            <th scope="col">Credited</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for t in transactions  %}
+          <tr>
+            <td>{{forloop.counter}}</td>
+            <td>{{t.transaction_date}}</td>
+            {% if t.from_account == account %}
+            <td> {{t.to_account}}</td>
+            <td> {{t.to_account | get_customer_name}}</td>
+            <td> {{t.transferred_amount}}</td>
+            <td>--</td>
+            {% else %}
+            <td> {{t.from_account}}</td>
+            <td> {{t.from_account | get_customer_name}}</td>
+            <td>--</td>
+            <td> {{t.transferred_amount}}</td>
+            {% endif %}
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
 {%endblock%}
