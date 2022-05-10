@@ -13,7 +13,8 @@ class Customer(models.Model):
     pan_number=models.CharField(max_length=20)
     login_id=models.CharField(max_length=10)
     customer_id=models.CharField(max_length=20,primary_key=True)
-    gender=models.CharField(max_length=10)
+    GENDER_CHOICES=[('male', 'Male'), ('female', 'Female'),['Other','other']]
+    gender=models.CharField(max_length=10, choices=GENDER_CHOICES)
     
     def register(self):
         self.save()

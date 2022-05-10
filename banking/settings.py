@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'app',
     'crispy_forms',
     'import_export'
+    ,'captcha'
 ]
 
 MIDDLEWARE = [
@@ -142,3 +143,7 @@ MESSAGE_TAGS = {
         messages.WARNING: 'alert-warning',
         messages.ERROR: 'alert-danger',
 }
+
+
+RECAPTCHA_PRIVATE_KEY='6Ld847gfAAAAAKkYuM9bPICF6TNLXSlgnm9yidRU'
+RECAPTCHA_PUBLIC_KEY='6Ld847gfAAAAAFd0n_dXfeh-w6I9HXbDx3NiN4u2'

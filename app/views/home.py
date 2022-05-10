@@ -23,7 +23,7 @@ class Index(View):
             
             account_numbers=[]
             for i in range(len(accounts)):
-                account_numbers.append(accounts[i].account_number)
+                account_numbers.append(accounts[i])
             return render(request,'home.html',{'full_name':full_name,'date_of_birth':date_of_birth,
                                                'email':email,'mobile':mobile,
                                                'address':address,'login_id':login_id,
@@ -32,3 +32,9 @@ class Index(View):
         else:
             return redirect('login')
             
+def addstar(account):
+    n=len(account)
+    for i in range(4,n-3):
+        account[i]='*'
+    account = ''.join([str(elem) for elem in account])
+    return account

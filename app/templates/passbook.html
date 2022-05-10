@@ -1,43 +1,63 @@
 {%extends 'base.html'%}
 {% load passtags %}
+{%load static%}
 {%block titleblock%}
 Passbook
 {%endblock%}
 
 
 {%block bodyblock%}
-    
+{% include 'header.html' %}
+<link rel='stylesheet' href="{%static 'css/passbook.css'%}">
+
+<div class="container mt-10" style="padding-left:3%;padding-right:3%;">
+<p class="h2 pass-header">Passbook</p>
+
+<input class="form-control" id="myInput" type="text" placeholder="Search..">
+
+  <div class="table-responsive">
+    <table class="table table-borderless table-striped table-hover mt-10">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Date</th>
+          <th scope="col">Account Number</th>
+          <th scope="col">Account Name</th>
+          <th scope="col"><font class="debited">Debited</font> / <font class="credited">Credited</font></th>
+        </tr>
+      </thead>
+      <tbody id="myTable">
+        {% for t in transactions  %}
         
+        <tr>
+          <td class="h5">{{forloop.counter}}</td>
+          <td class="h5">{{t.transaction_date}}</td>
+          {% if t.from_account in accounts and t.to_account in accounts %}
+          <td class="h5">{{t.from_account}}</td>
+          <td class="h5">{{t.to_account | get_customer_name}}</td>
+          <td class="h5" style="color: #1f89e6;"> {{t.transferred_amount}}</td >
+
+          {% elif t.from_account in accounts %}
+          <td class="h5"> {{t.to_account}}</td>
+          <td class="h5"> {{t.to_account | get_customer_name}}</td>
+          <td class="h5 debited"> {{t.transferred_amount}}</td >
+
         
-    <table class="table table-bordered">
-        <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">Date</th>
-            <th scope="col">Account Number</th>
-            <th scope="col">Account Name</th>
-            <th scope="col">Debited</th>
-            <th scope="col">Credited</th>
+          {% elif t.to_account in accounts %}
+          <td class="h5"> {{t.from_account}}</td >
+          <td class="h5"> {{t.from_account | get_customer_name}}</td>
+          <td class="h5 credited"> {{t.transferred_amount}}</td >
+
+          {% endif %}
           </tr>
-        </thead>
-        <tbody>
-            {% for t in transactions  %}
-          <tr>
-            <td>{{forloop.counter}}</td>
-            <td>{{t.transaction_date}}</td>
-            {% if t.from_account == account %}
-            <td> {{t.to_account}}</td>
-            <td> {{t.to_account | get_customer_name}}</td>
-            <td> {{t.transferred_amount}}</td>
-            <td>--</td>
-            {% else %}
-            <td> {{t.from_account}}</td>
-            <td> {{t.from_account | get_customer_name}}</td>
-            <td>--</td>
-            <td> {{t.transferred_amount}}</td>
-            {% endif %}
-          </tr>
-          {% endfor %}
-        </tbody>
-      </table>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="{%static 'js/passbook.js'%}"></script>
+
+
 {%endblock%}

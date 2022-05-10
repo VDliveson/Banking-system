@@ -7,16 +7,20 @@ from datetime import datetime
 
 class PortalView(View):
     def get(self, request):
-        return render(request,'portal.html')
+        customer=request.session.get('customer')
+        accounts=Account.get_customer_accounts(customer)
+        return render(request,'portal.html',{'accounts':accounts})
     
     def post(self, request):
         customer=Customer.get_Customer_by_id(request.session.get('customer'))
         ifsc_code=request.POST['ifsc_code']
         receiver_account=request.POST['receiver_account']
-        
-        sender_account=Account.get_customer_accounts(customer)[0]
+        temp_account=Account.get_customer_accounts(customer.customer_id)[0]
+        sender_account=request.POST.get('sender_account',temp_account)
+        sender_account=Account.get_account_by_account_number(sender_account)
         
         receiver_account=Account.get_customer_accounts_by_fields(receiver_account, ifsc_code)
+        
         if(not receiver_account):
             messages.error(request, 'Account does not exist')
             return render(request, 'portal.html')
