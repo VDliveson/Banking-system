@@ -60,7 +60,9 @@
     color: black;
   }
   
-  
+.welcome{
+  font-family: 'Roboto', sans-serif;
+}
 
 .account-header{
   font-family: 'Inter', sans-serif;

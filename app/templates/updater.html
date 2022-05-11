@@ -13,7 +13,7 @@
     <form action="/updater" method="POST" id="up-form" class="container-fluid info">
       {% csrf_token%}
       
-      <p class="head h2 text-center mb-10">Account Settings</>
+      <p class="head h2 text-center mb-2">Account Settings</p>
       <div class="row">
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
           <div class="form-group">
@@ -48,6 +48,34 @@
               type="email"
               name="email"
               placeholder="{{customer.email}}"
+              class="form-control"
+              value=""
+            />
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div class="form-group">
+            <label class="profile_details_text">New Password :</label>
+            <input
+              type="password"
+              name="password"
+              placeholder=""
+              class="form-control"
+              value=""
+            />
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div class="form-group">
+            <label class="profile_details_text">Confirm Password :</label>
+            <input
+              type="password"
+              name="check_password"
+              placeholder=""
               class="form-control"
               value=""
             />
@@ -112,6 +140,23 @@
           </div>
         </div>
       </div>
+
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div class="form-group">
+            <label class="profile_details_text">Pan Number</label>
+            <input
+              type="text"
+              name="pan_number"
+              placeholder="{{customer.pan_number}}"
+              class="form-control"
+              value=""
+              disabled
+            />
+          </div>
+        </div>
+      </div>
+
       <br />
       <div class="row">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 submit">

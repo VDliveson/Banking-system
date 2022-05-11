@@ -11,13 +11,22 @@ Home
 <link rel='stylesheet' href="{%static 'css/home.css' %}" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Roboto:wght@700&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet"> 
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Roboto:wght@700&display=swap"
+  rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter&family=Roboto&display=swap" rel="stylesheet"> 
 <!-- partial:index.partial.html -->
 
-<div class="container mt-20">
 
-  <div class="bg-gray-200 py-10 rounded-lg text-4xl text-gray-500 p-20">
+<div class="container mt-10">
+  <div class="welcome mb-3" style="white-space: nowrap">
+    <p class="h4" style="margin-left:5%">Welcome back, <b>{{login_id}}</b>
+      <img src="https://raw.githubusercontent.com/ABSphreak/ABSphreak/master/gifs/Hi.gif" width="30px" height="auto" style="display:inline;"/>
+    </p>
+  </div>
+
+  <hr>
+  <div class="bg-gray-200 py-10 rounded-lg text-4xl text-gray-500 p-20 mt-4">
 
     <div class="card 1 mb-100">
       <div class="card_image"> <img src="https://i.redd.it/b3esnz5ra34y.jpg" /> </div>
@@ -31,40 +40,40 @@ Home
       </div>
     </div>
 
-<hr>
-<p class="h4 text-dark mt-10 account-header"> All accounts </p>
-<div class="table-responsive mb-10">
-<table class="table" style="white-space:nowrap;overflow: hidden;">
-  <thead>
-    <tr>
-      <th class="h4" scope="col">Type</th>
-      <th class="h4" scope="col">Account Number</th>
-      <th class="h4" scope="col">Status</th>
-      <th class="h4" scope="col">Balance</th>
-    </tr>
-  </thead>
-  <tbody>
-    {% for a in account_numbers  %}
-    <tr>
-      <td class="h4" >
-        {% if a|get_account_type == 'Current'  %}
-        <i class="la la-street-view" style="color:blue;"></i>
-        {{a | get_account_type}
+    <hr>
+    <p class="h4 text-dark mt-10 account-header"> All accounts </p>
+    <div class="table-responsive mb-10">
+      <table class="table" style="white-space:nowrap;overflow: hidden;">
+        <thead>
+          <tr>
+            <th class="h4" scope="col">Type</th>
+            <th class="h4" scope="col">Account Number</th>
+            <th class="h4" scope="col">Status</th>
+            <th class="h4" scope="col">Balance</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for a in account_numbers  %}
+          <tr>
+            <td class="h4">
+              {% if a|get_account_type == 'Current'  %}
+              <i class="la la-street-view" style="color:blue;"></i>
+              {{a | get_account_type}
         {% else %}
         <i class="la la-suitcase" style="color:green;"></i>
         {{a | get_account_type}}
-        {% endif %}
-      </td>
-      <td class="h4"  >{{a | to_star}}</td>
-      <td class="h4" style="color:green" >Active</td>
-      <td class="h4" >{{a.balance}}</td>
-    </tr>
-    {% endfor %}
-  </tbody>
-</table>
-</div>
+              {% endif %}
+            </td>
+            <td class="h4">{{a | to_star}}</td>
+            <td class="h4" style="color:green">Active</td>
+            <td class="h4">{{a.balance}}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
 
-<!-- <div class="row">
+    <!-- <div class="row">
   <div class ="col-lg-12">
     <p class="h3 text-dark">Email : {{email}}</p>
   </div>
