@@ -10,8 +10,10 @@ urlpatterns=[
     path('passbook',passbook.PassbookView.as_view(),name='passbook'),
     path('portal',portal.PortalView.as_view(),name='portal'),
     path('updater',updater.UpdaterView.as_view(),name='updater'),
-    path(r'captcha/', include('captcha.urls')),
+    path('captcha/', include('captcha.urls')),
     ]
+
+
 
     # path("password_reset", reset.password_reset_request, name="password_reset"),
     # path('password_reset/done/', auth_views.PasswordResetDoneView.as_view(template_name='password_reset_done.html'), name='password_reset_done'),
