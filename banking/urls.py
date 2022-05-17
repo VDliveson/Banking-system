@@ -24,4 +24,4 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 ]
 
-handler404 = app.views.error_view.page_not_found_view
+# handler404 = app.views.error_view.page_not_found_view

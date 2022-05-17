@@ -30,22 +30,22 @@ class UpdaterView(View):
             update=True
 
 
-        if(first_name!=''):
+        if(first_name!='' and first_name!=customer.first_name):
             customer.first_name=first_name
             update=True
-        if(last_name!=''):
+        if(last_name!='' and last_name!=customer.last_name):
             customer.last_name=last_name
             update=True
-        if(email!=''):
+        if(email!='' and email!=customer.email):
             customer.email=email
             update=True
-        if(mobile!=''):
+        if(mobile!='' and mobile!=customer.mobile):
             customer.mobile=mobile
             update=True
-        if(address!=''):
+        if(address!='' and address!=customer.address):
             customer.address=address
             update=True
-        if(date_of_birth!=''):
+        if(date_of_birth!='' and date_of_birth!=customer.date_of_birth):
             customer.date_of_birth=date_of_birth
             update=True
         if(password!=''):

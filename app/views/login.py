@@ -26,7 +26,7 @@ class LoginView(View):
             return redirect('/admin')
         else:
             customer=Customer.get_Customer_by_login_id(username)
-            print(customer)
+
             if customer:
                 flag=check_password(password,customer.password)
                 if flag:

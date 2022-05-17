@@ -27,8 +27,7 @@ Passbook
         </tr>
       </thead>
       <tbody id="myTable">
-        {% for t in transactions  %}
-        
+        {% for t in transactions  %}      
         <tr>
           <td class="h5">{{forloop.counter}}</td>
           <td class="h5">{{t.transaction_date}}</td>

@@ -41,7 +41,9 @@ class PortalView(View):
                 receiver_account.register()
                 transaction.register()
                 messages.success(request,'Money transferred successfully')
-        return render(request, 'portal.html')
+        customer=request.session.get('customer')
+        accounts=Account.get_customer_accounts(customer)
+        return render(request, 'portal.html',{'accounts':accounts})
             
             
             
