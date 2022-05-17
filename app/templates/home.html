@@ -57,11 +57,11 @@ Home
           <tr>
             <td class="h4">
               {% if a|get_account_type == 'Current'  %}
-              <i class="la la-street-view" style="color:blue;"></i>
-              {{a | get_account_type}
-        {% else %}
-        <i class="la la-suitcase" style="color:green;"></i>
-        {{a | get_account_type}}
+                <i class="la la-street-view" style="color:blue;"></i>
+                {{a | get_account_type}}
+              {% else %}
+                <i class="la la-suitcase" style="color:green;"></i>
+                {{a | get_account_type}}
               {% endif %}
             </td>
             <td class="h4">{{a | to_star}}</td>

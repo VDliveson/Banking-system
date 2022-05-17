@@ -11,8 +11,9 @@ def get_customer_name(customer_account):
 
 @register.filter(name='get_account_type')
 def get_account_type(customer_account):
-    account_type=AccountType.get_type_by_name(customer_account.account_type)
+    account_type=str(AccountType.get_type_by_name(customer_account.account_type))
     return account_type
+    
 
 @register.filter(name='to_star')
 def to_star(account):
