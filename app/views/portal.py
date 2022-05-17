@@ -13,17 +13,18 @@ class PortalView(View):
     
     def post(self, request):
         customer=Customer.get_Customer_by_id(request.session.get('customer'))
+        accounts=Account.get_customer_accounts(customer)
+        
         ifsc_code=request.POST['ifsc_code']
         receiver_account=request.POST['receiver_account']
         temp_account=Account.get_customer_accounts(customer.customer_id)[0]
         sender_account=request.POST.get('sender_account',temp_account)
         sender_account=Account.get_account_by_account_number(sender_account)
-        
         receiver_account=Account.get_customer_accounts_by_fields(receiver_account, ifsc_code)
         
         if(not receiver_account):
             messages.error(request, 'Account does not exist')
-            return render(request, 'portal.html')
+            return render(request, 'portal.html',{'accounts':accounts})
         else:
             print(customer, sender_account, receiver_account,'\n')
             money_to_transfer=request.POST['money_to_transfer']
@@ -41,8 +42,7 @@ class PortalView(View):
                 receiver_account.register()
                 transaction.register()
                 messages.success(request,'Money transferred successfully')
-        customer=request.session.get('customer')
-        accounts=Account.get_customer_accounts(customer)
+
         return render(request, 'portal.html',{'accounts':accounts})
             
             
