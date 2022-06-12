@@ -13,6 +13,10 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from pathlib import Path
 import os
+import environ
+
+env = environ.Env()
+environ.Env.read_env()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -22,7 +26,7 @@ STATIC_DIR=os.path.join(BASE_DIR,"static")
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-@i9_7yu6#hzmw0mccb^=dd&er*g9ogfx@v*5e!!e)v@92c33nv'
+SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -42,7 +46,6 @@ INSTALLED_APPS = [
     'app',
     'crispy_forms',
     'import_export',
-    'captcha'
 ]
 
 MIDDLEWARE = [
@@ -145,7 +148,5 @@ MESSAGE_TAGS = {
 }
 
 
-RECAPTCHA_PRIVATE_KEY='6Ld847gfAAAAAKkYuM9bPICF6TNLXSlgnm9yidRU'
-RECAPTCHA_PUBLIC_KEY='6Ld847gfAAAAAFd0n_dXfeh-w6I9HXbDx3NiN4u2'
 
 LOGIN_URL='login'

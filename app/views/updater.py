@@ -3,7 +3,6 @@ from django.shortcuts import redirect, render
 from django.contrib import messages
 from django.http import HttpResponse
 from app.models import Customer,Account,Transaction
-from .forms import MyForm
 from django.contrib.auth.hashers import make_password, check_password
 
 class UpdaterView(View):

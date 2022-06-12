@@ -10,7 +10,7 @@ urlpatterns=[
     path('passbook',passbook.PassbookView.as_view(),name='passbook'),
     path('portal',portal.PortalView.as_view(),name='portal'),
     path('updater',updater.UpdaterView.as_view(),name='updater'),
-    path('captcha/', include('captcha.urls')),
+    # path('captcha/', include('captcha.urls')),
     ]
 
 
