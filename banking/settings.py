@@ -10,7 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 # from decouple import config
-
+import django_heroku
 from pathlib import Path
 import os
 import environ
@@ -153,3 +153,5 @@ MESSAGE_TAGS = {
 
 
 LOGIN_URL='login'
+
+django_heroku.settings(locals())
