@@ -7,7 +7,6 @@ class Index(View):
     def get(self, request):
         customer=Customer.get_Customer_by_id(request.session.get('customer'))
         if(customer):
-            
             accounts=Account.get_customer_accounts(customer)
             
             total_balance=0

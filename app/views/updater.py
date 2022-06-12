@@ -9,7 +9,11 @@ from django.contrib.auth.hashers import make_password, check_password
 class UpdaterView(View):
     def get(self,request):
         customer=Customer.get_Customer_by_id(request.session.get('customer'))
-        return render(request, 'updater.html',{'customer':customer})
+        if customer:
+            return render(request, 'updater.html',{'customer':customer})
+        else:
+            return redirect('login')
+
     def post(self,request):
         customer=Customer.get_Customer_by_id(request.session.get('customer'))
         first_name=request.POST['first_name']

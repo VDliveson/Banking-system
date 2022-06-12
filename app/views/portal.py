@@ -8,8 +8,11 @@ from datetime import datetime
 class PortalView(View):
     def get(self, request):
         customer=request.session.get('customer')
-        accounts=Account.get_customer_accounts(customer)
-        return render(request,'portal.html',{'accounts':accounts})
+        if customer:
+            accounts=Account.get_customer_accounts(customer)
+            return render(request,'portal.html',{'accounts':accounts})
+        else: 
+            return redirect('login')
     
     def post(self, request):
         customer=Customer.get_Customer_by_id(request.session.get('customer'))
