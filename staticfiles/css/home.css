@@ -1,0 +1,70 @@
+.name {
+    color: #fff;
+}
+
+.dashboard {
+    color:#8965d8;
+    box-shadow: inset 0.25rem 0 0 0 #805ad5;
+    --gradient-from-color: #e9d8fd;
+    --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, rgba(233, 216, 253, 0));
+}
+
+
+
+.card {
+
+    margin-left: 15%;
+    margin-bottom: 40px;
+    width: 50vw;
+    height: 30vh;
+    border: 1px solid black;
+    border-radius: 40px ;
+  box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.22);
+    cursor: pointer;
+    transition: 0.4s;
+  }
+  
+  .card .card_image {
+    width: inherit;
+    height: inherit;
+    border-radius: 40px;
+  }
+  
+  .card .card_image img {
+    width: inherit;
+    height: inherit;
+    border-radius: 40px;
+    object-fit: cover;
+  }
+  
+  .card .card_title {
+    border-radius: 0px 0px 40px 40px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    font-size: 30px;
+    margin-top: -150px;
+    height: 40px;
+  }
+  
+  .card:hover {
+    transform: scale(0.9, 0.9);
+    box-shadow: 5px 5px 30px 15px rgba(0,0,0,0.25), 
+      -5px -5px 30px 15px rgba(0,0,0,0.22);
+  }
+  
+  .title-white {
+    color: white;
+  }
+  
+  .title-black {
+    color: black;
+  }
+  
+.welcome{
+  font-family: 'Roboto', sans-serif;
+}
+
+.account-header{
+  font-family: 'Inter', sans-serif;
+}
+

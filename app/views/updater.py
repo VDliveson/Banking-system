@@ -24,7 +24,6 @@ class UpdaterView(View):
         date_of_birth=request.POST['date_of_birth']
         password=request.POST.get('password')
         check_password=request.POST.get('check_password')
-        form=MyForm()
         update=False
         passw=False
         
@@ -64,7 +63,7 @@ class UpdaterView(View):
         else:
             customer.register()
             messages.success(request,'Information updated successfully')
-        return render(request, 'updater.html',{'customer':customer,'form':form})
+        return render(request, 'updater.html',{'customer':customer})
             
         
         
