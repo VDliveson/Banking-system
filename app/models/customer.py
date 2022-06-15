@@ -8,7 +8,7 @@ class Customer(models.Model):
     password=models.CharField(max_length=200)
     date_of_birth=models.DateField()
     email=models.EmailField(max_length=50)
-    mobile=models.BigIntegerField()()
+    mobile=models.CharField(max_length=10)
     address=models.CharField(max_length=200)
     pan_number=models.CharField(max_length=20)
     login_id=models.CharField(max_length=50)
