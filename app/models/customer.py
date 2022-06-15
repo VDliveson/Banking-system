@@ -11,8 +11,8 @@ class Customer(models.Model):
     mobile=models.IntegerField()
     address=models.CharField(max_length=200)
     pan_number=models.CharField(max_length=20)
-    login_id=models.CharField(max_length=10)
-    customer_id=models.CharField(max_length=20,primary_key=True)
+    login_id=models.CharField(max_length=50)
+    customer_id=models.CharField(max_length=50,primary_key=True)
     GENDER_CHOICES=[('male', 'Male'), ('female', 'Female'),['Other','other']]
     gender=models.CharField(max_length=10, choices=GENDER_CHOICES)
     
