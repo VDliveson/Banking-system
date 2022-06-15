@@ -13,11 +13,18 @@ import string
 
 #Run this script as it is
 
+#Account type generator
+account_type_one=AccountType(account_type='Savings')
+account_type_one.register()
+
+account_type_two=AccountType(account_type='Current')
+account_type_two.register()
+
 #Customer generator
 
 data=pd.read_csv('mock_data_new.csv')
 
-
+customer_arr=[]
 for i in range(10):
     first_name=data.get('first_name')[i]
     last_name=data.get('last_name')[i]
@@ -32,10 +39,12 @@ for i in range(10):
     gender=data.get('gender')[i]
     customer_id=data.get('customer_id')[i]
     customer_id=str(''.join(random.choices(string.ascii_uppercase +string.digits, k = 8)))
+    customer_arr.append(customer_id)
     customer=Customer(first_name=first_name,last_name=last_name,date_of_birth=date_of_birth,
                       email=email,mobile=mobile,address=address,pan_number=pan_number,
                       login_id=login_id,customer_id=customer_id,gender=gender)
     customer.password=make_password(password)
+    print(login_id,' ',password)
     customer.register()
     print('Customer '+str(i)+' registered in db')
     
@@ -47,7 +56,7 @@ for i in range(10):
 data=pd.read_csv('account_mock_data.csv')
 
 for i in range(10):
-    customer_id=Customer.get_Customer_by_id(data.get('customer_id')[i])
+    customer_id=Customer.get_Customer_by_id(customer_arr[i])
     account_type=AccountType.get_type_by_name(type=data.get('account_type')[i])
     balance=random.randint(500,10000)
     ifsc_code=data.get('ifsc_code')[i]
