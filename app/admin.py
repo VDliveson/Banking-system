@@ -18,7 +18,8 @@ class AdminAccount(ImportExportModelAdmin):
     
 class AdminCustomer(ImportExportModelAdmin):
     resource_class=CustomerResource
-    import_id_fields = ('first_name','customer_id')
+    import_id_fields = ('customer_id')
+    list_display =['first_name','customer_id']
     
 admin.site.register(Account,AdminAccount)
 admin.site.register(Customer,AdminCustomer)
