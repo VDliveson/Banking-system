@@ -15,10 +15,10 @@ import string
 
 #Account type generator
 account_type_one=AccountType(account_type='Savings')
-account_type_one.register()
+account_type_one.save()
 
 account_type_two=AccountType(account_type='Current')
-account_type_two.register()
+account_type_two.save()
 
 #Customer generator
 
