@@ -34,7 +34,7 @@ idna==3.2
 import-export==0.2.67.dev6
 itsdangerous==2.1.2
 Jinja2==3.1.2
-joblib==1.1.0
+joblib==1.2.0
 Markdown==3.4.1
 MarkupPy==1.14
 MarkupSafe==2.1.1
