@@ -34,7 +34,7 @@ idna==3.2
 import-export==0.2.67.dev6
 itsdangerous==2.1.2
 Jinja2==3.1.2
-joblib==1.1.0
+joblib==1.2.0
 Markdown==3.4.1
 MarkupPy==1.14
 MarkupSafe==2.1.1
@@ -46,12 +46,12 @@ openpyxl==3.0.9
 panda==0.3.1
 pandas==1.5.1
 pathspec==0.11.0
-Pillow==8.3.2
+Pillow==9.4.0
 pre-commit==2.13.0
 psycopg2==2.9.2
 psycopg2-binary==2.8.6
 pycparser==2.20
-PyJWT==2.1.0
+PyJWT==2.6.0
 pymongo==3.12.1
 python-dateutil==2.8.2
 python3-openid==3.2.0
